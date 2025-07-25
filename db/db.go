@@ -10,10 +10,10 @@ import (
 )
 
 func InitDb() *gorm.DB {
-	dsn := "host=localhost user=postgres password=postgres dbname=golang_learning port=5432 sslmode=disable TimeZone=UTC"
+	dsn := "host=localhost user=postgres password=postgres dbname=golang port=5433 sslmode=disable TimeZone=UTC"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{
-			TablePrefix: "rest_api.",
+			TablePrefix: "api.",
 		},
 	})
 	if err != nil {
