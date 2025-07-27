@@ -1,11 +1,13 @@
 package schemas
 
-import (
-	"time"
-)
+type ReadTableSchema struct {
+	Table   string   `json:"table" binding:"required"`
+	Filters []string `json:"filters"`
+	OrderBy []string `json:"order_by"`
+	Limit   uint16   `json:"limit"`
+}
 
-type AddUserBody struct {
-	Name      string    `json:"name" binding:"required"`
-	Email     string    `json:"email" binding:"required,email"`
-	CreatedAt time.Time `json:"created_at"`
+type CreateEntrySchema struct {
+	Table  string                   `json:"table" binding:"required"`
+	Values []map[string]interface{} `json:"values" binding:"required"`
 }

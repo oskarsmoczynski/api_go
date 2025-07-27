@@ -12,7 +12,8 @@ import (
 func main() {
 	db := db.InitDb()
 	rtr := router.CreateDefaultRouter()
-	router.AppendRoute(rtr, db, http.MethodPost, "/create-user", service.AddUser)
+	router.AppendRoute(rtr, db, http.MethodGet, "/read-table", service.ReadTable)
+	router.AppendRoute(rtr, db, http.MethodPost, "/create-entry", service.CreateEntry)
 	s := server.CreateServer("localhost:9090", rtr)
 	server.Run(s)
 }

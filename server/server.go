@@ -19,5 +19,5 @@ func CreateServer(address string, router *gin.Engine) Server {
 }
 
 func Run(server Server) {
-	server.router.Run()
+	server.router.Run(server.address)
 }
