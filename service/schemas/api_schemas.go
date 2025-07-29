@@ -8,6 +8,17 @@ type ReadTableSchema struct {
 }
 
 type CreateEntrySchema struct {
-	Table  string                   `json:"table" binding:"required"`
-	Values []map[string]interface{} `json:"values" binding:"required"`
+	Table  string           `json:"table" binding:"required"`
+	Values []map[string]any `json:"values" binding:"required"`
+}
+
+type UpdateEntrySchema struct {
+	Table   string   `json:"table" binding:"required"`
+	Values  []string `json:"values" binding:"required"`
+	Filters []string `json:"filters" binding:"required"`
+}
+
+type DeleteEntrySchema struct {
+	Table   string   `json:"table" binding:"required"`
+	Filters []string `json:"filters" binding:"required"`
 }

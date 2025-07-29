@@ -8,7 +8,7 @@ import (
 )
 
 // GetModelByName returns a new instance of the model by its name
-func GetModelByName(modelName string, slice bool) (any, error) {
+func GetModelByName(modelName string, slice bool) any {
 	var model any
 
 	switch modelName {
@@ -25,14 +25,13 @@ func GetModelByName(modelName string, slice bool) (any, error) {
 	case "review":
 		model = &Review{}
 	default:
-		err := fmt.Sprintf("Model %v not found", modelName)
-		return nil, errors.New(err)
+		return nil
 	}
 
 	if slice {
 		model = createModelSlice(model)
 	}
-	return model, nil
+	return model
 }
 
 func createModelSlice(model any) any {

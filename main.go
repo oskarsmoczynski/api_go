@@ -14,6 +14,8 @@ func main() {
 	rtr := router.CreateDefaultRouter()
 	router.AppendRoute(rtr, db, http.MethodGet, "/read-table", service.ReadTable)
 	router.AppendRoute(rtr, db, http.MethodPost, "/create-entry", service.CreateEntry)
+	router.AppendRoute(rtr, db, http.MethodPatch, "/update-entry", service.UpdateEntry)
+	router.AppendRoute(rtr, db, http.MethodDelete, "/delete-entry", service.DeleteEntry)
 	s := server.CreateServer("localhost:9090", rtr)
 	server.Run(s)
 }
