@@ -4,12 +4,14 @@ import (
 	"api/db/models"
 	"api/service/schemas"
 	"strings"
+	u "api/utils"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
 func ReadTable(context *gin.Context, db *gorm.DB) {
+	u.StdLogger.Println("Starting to read table")
 	var body schemas.ReadTableSchema
 	if err := context.ShouldBindJSON(&body); err != nil {
 		context.JSON(400, gin.H{"error": "invalid request", "details": err.Error()})

@@ -5,11 +5,14 @@ import (
 	"api/router"
 	"api/server"
 	"api/service"
+	u "api/utils"
 
 	"net/http"
 )
 
 func main() {
+	u.InitLogger()
+	u.StdLogger.Println("abc")
 	db := db.InitDb()
 	rtr := router.CreateDefaultRouter()
 	router.AppendRoute(rtr, db, http.MethodGet, "/read-table", service.ReadTable)

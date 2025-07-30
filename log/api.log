@@ -1,0 +1,5 @@
+2025/07/30 22:29:15 main.go:15: abc
+2025/07/30 22:47:42 main.go:15: abc
+2025/07/30 22:51:25 main.go:15: abc
+2025/07/30 22:51:40 service.go:14: Starting to read table
+2025/07/30 22:52:58 service.go:14: Starting to read table
